@@ -54,9 +54,51 @@ public class SinglyLinkedList {
             }
             size++;
         }
-
         //Time Complexity of insertInLinkedList: O(n)
         //Space Complexity: O(1)
+
+
+    //SinglyLinkedList Traversal
+    public void traverseSinglyLinkedList() {
+        if(head == null) { //Meaning if the Linkedlist is empty, we print that it doesn't exist
+            System.out.println("Single Linked List does not exist!");
+        }
+        else {
+            Node tempNode = head; //Create a temp node that stores head(to start from the beginning
+            for(int i = 0; i < size; i++) { //Loop through the list as long as i is less than size
+                System.out.print(tempNode.value); //Print the node value
+                if(i != size - 1) {
+                    System.out.print(" --> ");
+                }
+                tempNode = tempNode.next; //and store the next reference to tempNode
+            }
+        }
+        System.out.print("\n");
+    }
+
+    //Time Complexity: O(n)
+    //Space Complexity: O(1)
+
+
+    //Search for a node
+    public boolean searchSinglyLinkedList(int nodeValue) {
+        if(head != null) { //If the list isn't empty
+            Node tempNode = head; //create a tempNode and set it to head(this is where we start when traversing)
+            for(int i = 0; i < size; i++) { //Loop from i = 0 as long as its less than size
+                if(tempNode.value == nodeValue) { //Check if tempNode.value is equal to the parameter nodeValue
+                    System.out.println("Found the node at location " + i + "\n");
+                    return true; //If true we print the above statement and return true
+                }
+                tempNode = tempNode.next; //Set tempNode = tempNode.next to continue traversing
+            }
+        }
+        System.out.println("Node not found"); //If node not found print statement and return false
+        return false;
+        }
+
+        //Time Complexity: O(n)
+       //Space Complexity: O(1)
+
 
 
 }
