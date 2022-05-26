@@ -23,4 +23,40 @@ public class SinglyLinkedList {
 
         //                                                                      Overall: O(1) Time Complexity
     }
+
+        //Insert Method SinglyLinkedList
+        public void insertInLinkedList(int nodeValue, int location) {
+            Node node = new Node(); //Object creation of type node
+            node.value = nodeValue; //Setting the nodeValue to node.value
+            if(head == null) { //If head is null, meaning if the list is empty
+                createdSinglyLinkedList(nodeValue); //Insert the node and return it
+                return;
+            }
+            else if(location == 0) {
+                node.next = head;
+                head = node;
+            }
+            else if(location >= size) { //If the location is greater than the size, we know that we need to insert at the end of the list
+                node.next = null;
+                tail.next = node;
+                tail = node;
+            }
+            else {
+                Node tempNode = head;
+                int index = 0;
+                while(index < location - 1) {
+                    tempNode = tempNode.next;
+                    index++;
+                }
+                Node nextNode = tempNode.next;
+                tempNode.next = node;
+                node.next = nextNode;
+            }
+            size++;
+        }
+
+        //Time Complexity of insertInLinkedList: O(n)
+        //Space Complexity: O(1)
+
+
 }
