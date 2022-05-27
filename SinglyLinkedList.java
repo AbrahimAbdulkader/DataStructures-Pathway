@@ -143,6 +143,20 @@ public class SinglyLinkedList {
     //Space Complexity: O(1)
 
 
+    // ---------------------------------------------------------------
+
+
+    //Delete entire Singly Linked List
+    public void deleteEntireSinglyLinkedList() {
+        Node tempNode = head;
+        head = null;
+        tail = null;
+        System.out.println("Entire Singly Linked List Deleted!");
+
+        }
+
+
+
 
 
 }
