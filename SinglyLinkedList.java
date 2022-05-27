@@ -100,5 +100,49 @@ public class SinglyLinkedList {
        //Space Complexity: O(1)
 
 
+    //Deleting a Node From a Singly Linked List
+    public void deletionOfNode(int location) {
+        if(head == null) { //If head is null meaning there is no node in the list
+            System.out.println("The Singly Linked List does not exist");
+            return;
+        }
+        else if(location == 0) { //If we have more than one element, we can always delete the node by setting the head reference to head.next
+            head = head.next; //Set the head reference to the node next to what is being deleted
+            size--;
+            if(size == 0) { //If the list is empty
+                tail = null; //We have to initialize tail back to null
+            }
+        }
+        else if(location >= size) { //Checking for the last node in the list
+            Node tempNode = head;
+            for(int i = 0; i < size - 1; i++) { //We need to traverse through the list to get to the deletionNode - 1
+                tempNode = tempNode.next;
+            }
+            if(tempNode == head) { //If we have only one element
+                tail = null;
+                head = null;
+                size--;
+                return;
+            }
+            tempNode.next = null;
+            tail = tempNode;
+            size--;
+        }
+        else {
+            Node tempNode = head; //We are starting from the head
+            for(int i = 0; i < location - 1; i++) {
+                tempNode = tempNode.next;
+                // [1] [2] [3]
+                //  t
+            }
+            tempNode.next = tempNode.next.next;
+            size--;
+        }
+    }
+    //Time Complexity: O(n)
+    //Space Complexity: O(1)
+
+
+
 
 }

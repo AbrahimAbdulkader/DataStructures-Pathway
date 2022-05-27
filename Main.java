@@ -10,7 +10,8 @@ public class Main {
         sLL.insertInLinkedList(8, 4);
         sLL.insertInLinkedList(9, 0);
         sLL.traverseSinglyLinkedList();
-        sLL.searchSinglyLinkedList(10);
+        sLL.deletionOfNode(0);
+        sLL.traverseSinglyLinkedList();
 
     }
 
